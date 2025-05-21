@@ -27,7 +27,7 @@ class TgUploader:
                 return await self.__client.send_document(chat_id=Var.FILE_STORE,
                     document=path,
                     thumb="thumb.jpg" if ospath.exists("thumb.jpg") else None,
-                    caption=f"<i>{self.__name}</i>",
+                    caption=f"<i>{self.__name}@chrunchyrool</i>",
                     force_document=True,
                     progress=self.progress_status
                 )
@@ -35,7 +35,7 @@ class TgUploader:
                 return await self.__client.send_video(chat_id=Var.FILE_STORE,
                     document=path,
                     thumb="thumb.jpg" if ospath.exists("thumb.jpg") else None,
-                    caption=f"<i>{self.__name}</i>",
+                    caption=f"<i>{self.__name}@chrunchyrool</i>",
                     progress=self.progress_status
                 )
         except FloodWait as e:
@@ -58,7 +58,7 @@ class TgUploader:
             speed = current / diff 
             eta = round((total - current) / speed)
             bar = floor(percent/8)*"█" + (12 - floor(percent/8))*"▒"
-            progress_str = f"""‣ <b>Anime Name :</b> <b><i>{self.__name}</i></b>
+            progress_str = f"""‣ <b>Anime Name :</b> <b><i>{self.__name}@chrunchyrool</i></b>
 
 ‣ <b>Status :</b> <i>Uploading</i>
     <code>[{bar}]</code> {percent}%
