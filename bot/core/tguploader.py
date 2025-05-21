@@ -27,7 +27,7 @@ class TgUploader:
                 return await self.__client.send_document(chat_id=Var.FILE_STORE,
                     document=path,
                     thumb="thumb.jpg" if ospath.exists("thumb.jpg") else None,
-                    caption=f"<i>{self.__name} @chrunchyrool</i>",
+                    caption=f"<b><i>{self.__name}</i></b>",
                     force_document=True,
                     progress=self.progress_status
                 )
@@ -35,7 +35,7 @@ class TgUploader:
                 return await self.__client.send_video(chat_id=Var.FILE_STORE,
                     document=path,
                     thumb="thumb.jpg" if ospath.exists("thumb.jpg") else None,
-                    caption=f"<i>{self.__name} @chrunchyrool</i>",
+                    caption=f"<b><i>{self.__name}</i></b>",
                     progress=self.progress_status
                 )
         except FloodWait as e:
@@ -58,7 +58,7 @@ class TgUploader:
             speed = current / diff 
             eta = round((total - current) / speed)
             bar = floor(percent/8)*"█" + (12 - floor(percent/8))*"▒"
-            progress_str = f"""‣ <b>Anime Name :</b> <b><i>{self.__name} @chrunchyrool</i></b>
+            progress_str = f"""‣ <b>Anime Name :</b> <b><i>{self.__name}</i></b>
 
 ‣ <b>Status :</b> <i>Uploading</i>
     <code>[{bar}]</code> {percent}%
@@ -68,6 +68,7 @@ class TgUploader:
     ‣ <b>Time Took :</b> {convertTime(diff)}
     ‣ <b>Time Left :</b> {convertTime(eta)}
 
-‣ <b>File(s) Encoded:</b> <code>{Var.QUALS.index(self.__qual)} / {len(Var.QUALS)}</code>\n\nPowered by @KGN_BOTZ ,Owner @ExE_AQUIB Anime Index- @KGN_ANIME_INDEX"""
+‣ <b>File(s) Encoded:</b> <code>{Var.QUALS.index(self.__qual)} / {len(Var.QUALS)}</code> 
+  Powered by @KGN_BOTZ ,Owner @ExE_AQUIB Anime Index- @KGN_ANIME_INDEX"""
             
             await editMessage(self.message, progress_str)
