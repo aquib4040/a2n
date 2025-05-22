@@ -19,7 +19,7 @@ async def upcoming_animes():
                 await aname.load_anilist()
                 text += f'`[{i["time"]}]` -  [{(await info.get_english())}]\n'
             TD_SCHR = await bot.send_message(Var.MAIN_CHANNEL, text)
-            await (await TD_SCHR.pin()).delete()
+            await (await TD_SCHR.pin())
         except Exception as err:
             await rep.report(str(err), "error")
     if not ffQueue.empty():
