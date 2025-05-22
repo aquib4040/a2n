@@ -17,7 +17,7 @@ async def upcoming_animes():
             for i in aniContent:
                 aname = TextEditor(i["title"])
                 await aname.load_anilist()
-                text += f'''{i{aname.adata.get('title', {}).get('english') or i['title']}</a>\n    • <b>Time</b> : {i["time"]} hrs\n\n'''
+                text += f'`[{i["time"]}]` -  [{(await info.get_english())}]\n'
             TD_SCHR = await bot.send_message(Var.MAIN_CHANNEL, text)
             await (await TD_SCHR.pin()).delete()
         except Exception as err:
